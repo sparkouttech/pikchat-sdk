@@ -1,0 +1,34 @@
+{
+  "name": "pikchat-sdk",
+  "version": "0.0.1",
+  "description": "Sparkouttech chat library",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "repository": "https://github.com/sparkouttech/pikchat-sdk.git",
+  "keywords": [],
+  "author": "sivabharathy <gotocva@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "mariadb": "^2.5.5",
+    "moment": "^2.29.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.9.0",
+    "socket.io": "^4.1.3"
+  }
+}

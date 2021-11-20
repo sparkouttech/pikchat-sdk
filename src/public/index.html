@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <title>Pikchat client</title>
+
+    <style>
+      .float-right {
+        float: right !important;
+      }
+    </style>
+    
+  </head>
+  <body>
+
+    <div class="container mt-5">
+
+        <div class="card">
+          <div class="card-body">
+
+            <div class="col-md-12">
+
+            <div class="row">
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="connectUrl" class="form-label">Enter your URL</label>
+                <input type="text" class="form-control connect-form" value="http://localhost:3000" id="connectUrl" placeholder="">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="apiKey" class="form-label">Enter your Api key</label>
+                <input type="text" class="form-control connect-form" value="12345" id="apiKey" placeholder="">
+              </div>
+              
+            </div>
+
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="sessionId" class="form-label">Enter your sessionId</label>
+                <input type="text" class="form-control connect-form" value="b5e44e31-33d3-467e-8b2f-236d0fad615b" id="sessionId" placeholder="">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="userId" class="form-label">Enter your userId</label>
+                <input type="text" class="form-control connect-form" value="b5e44e31-33d3-467e-8b2f-236d0fad615b" id="userId" placeholder="">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="accessToken" class="form-label">Enter your accessToken</label>
+                <input type="text" class="form-control connect-form" value="b5e44e31-33d3-467e-8b2f-236d0fad615b" id="accessToken" placeholder="">
+              </div>
+            </div>
+
+            <div class="col-md-9">
+              <button type="button" style="margin-top: 2%;float: right;" id="connect" class="btn btn-primary">Connect</button>
+              <button type="button" style="margin-top: 2%;float: right;" id="disconnect" class="btn btn-danger">Disconnect</button>
+            </div>
+            
+          </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="col-md-12 mt-5">
+        <div class="row">
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="card" style="cursor: pointer;">
+                  <div class="card-header">
+                    <a href=#>1</a>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">online</li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="card mt-1">
+                  <div class="card-header">
+                    <p>:) Hello. How are you today?</p>
+                  </div>
+                </div>
+
+                <div class="card mt-1">
+                  <div class="card-header">
+                    <p class="float-right">Hello. How are you today? (:</p>
+                  </div>
+                </div>
+
+                <div class="form-group mt-5">
+                  <textarea type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3 float-right">send</button>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Content here -->
+      <div class="col-md-12 mt-5">
+        <div class="row">
+
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="mb-3">
+                  <label for="receiverId" class="form-label">Enter receiver userId</label>
+                  <input type="text" class="form-control" value="2" id="receiverId" placeholder="">
+                </div>
+
+                <div class="mb-3">
+                  <label for="message" class="form-label">Enter message</label>
+                  <input type="text" class="form-control" value="Hello" id="message" placeholder="">
+                </div>
+
+                <button type="button" id="sendMessage" class="btn btn-primary">Send</button>
+
+              </div>
+            </div>
+
+            <div class="card mt-2">
+              <div class="card-body">
+
+                <h5>Online users</h5>
+                <ul class="list-group list-group-flush" id="onlineUsers">
+                  
+                </ul>
+
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+
+                <h5>Message received</h5>
+                <ul class="list-group list-group-flush" id="messageReceived">
+                  
+                </ul>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- <div class="col-md-12 mt-5">
+      <div class="row">
+    <div class="card">
+      <div class="card-header">
+        Logs
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+      </ul>
+    </div>
+    </div> -->
+
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="socket.io.min.js"></script>
+
+    <script>
+
+      let socket = null;
+      let onlineUsers = null;
+
+      $("#disconnect").hide();
+      updateOnlineUsers();
+
+      $("#connect").click(function() {
+
+        const host = $("#connectUrl").val();
+        const userId = $("#userId").val();
+        const accessToken = $("#accessToken").val();
+        const sessionId = $("#sessionId").val();
+        const apiKey = $("#apiKey").val();
+
+        const SOCKET_URL = host + '?userId='+userId+'&accessToken='+accessToken+'&sessionId='+sessionId+'&apiKey='+apiKey;
+        console.log(SOCKET_URL);
+        socket = io(SOCKET_URL);
+
+        socket.io.on("error", (error) => {
+          console.log(error);
+        });
+
+        socket.on("connect", () => {
+          console.log(socket.id); // "G5p5..."
+          console.log(socket.connected); // true
+          $(".connect-form").prop('disabled', true);
+          $("#disconnect").show();
+          $("#connect").hide();
+        });
+
+        socket.on('ONLINE_USERS', (data) => {
+          console.log('message received on ONLINE_USERS');
+          console.dir(data);
+          onlineUsers = data;
+          updateOnlineUsers();
+        });
+
+        socket.on('SINGLE_CHAT_MESSAGE', (data) => {
+          console.log('message received on SINGLE_CHAT_MESSAGE');
+          console.dir(data);
+          const userId = $("#userId").val();
+          if (userId != data.senderId) {
+            $("#messageReceived").append('<h4>'+data.senderId+'</h4>');
+          $("#messageReceived").append('<li>'+data.message+'</li>');
+          }
+          
+        });
+
+        socket.on("disconnect", () => {
+          // socket.connect();
+          console.log('connection disconnected');
+          $(".connect-form").prop('disabled', false);
+          $("#disconnect").hide();
+          $("#connect").show();
+        });
+      });
+
+      $("#disconnect").click(function() {
+        socket.disconnect();
+      });
+
+
+      function updateOnlineUsers() {
+        $("#onlineUsers").html('');
+        const userId = $("#userId").val();
+        if (onlineUsers != null) {
+          onlineUsers.forEach(user => {
+            if (userId != user.userId) {
+              $("#onlineUsers").append('<li onclick="setReceiver('+user.userId+')">'+user.userId+'</li>');
+            }
+          });
+        } else {
+          $("#onlineUsers").html('No users online');
+        }
+      }
+
+      function setReceiver(id) {
+        $("#receiverId").val(id);
+      }
+
+      $("#sendMessage").click(function() {
+
+        const userId = $("#userId").val();
+        const message = $("#message").val();
+        const receiverId = $("#receiverId").val();
+
+        const messageParams = {
+          senderId : userId,
+          receiverId : receiverId,
+          messageType : 1,
+          message : message
+        }
+        socket.emit("SINGLE_CHAT_MESSAGE", messageParams);
+
+
+      });
+    </script>
+  </body>
+</html>
