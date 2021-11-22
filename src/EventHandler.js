@@ -2,6 +2,8 @@
 const events = require('./events');
 
 const disconnect = require('./events/disconnect');
+const GetMessage = require('./events/GetMessage');
+const GetOfflineMessage = require('./events/GetOfflineMessage');
 const MessageDelivered = require('./events/MessageDelivered');
 const NewConnection = require('./events/NewConnection');
 const SingleChatMessage = require('./events/SingleChatMessage');
@@ -16,6 +18,7 @@ const EventHandler = (data) => {
     const { userId, accessToken, apiKey, sessionId } = socket.handshake.query;
 
     NewConnection(data);
+    GetOfflineMessage(data);
     
     /**
      * if user disconnected from socket server
@@ -44,6 +47,13 @@ const EventHandler = (data) => {
     socket.on(events.SINGLE_CHAT_MESSAGE_READ, (message) => {
         data.message = message;
         MessageDelivered(data);
+    });
+    /**
+     * 
+     */
+     socket.on(events.GET_MESSAGES, (message) => {
+        data.message = message;
+        GetMessage(data);
     });
 }
 

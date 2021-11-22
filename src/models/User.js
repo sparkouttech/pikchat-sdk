@@ -14,9 +14,7 @@ const UserModel = (sequelize) => {
         lastOnlineAt : {
             type: Sequelize.STRING
         }
-      }, {
-        // Other model options go here
-    });
+      }, { });
     User.sync();
     return User;
 };
