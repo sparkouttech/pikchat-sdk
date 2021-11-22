@@ -1,8 +1,6 @@
 
 const Sequelize = require('sequelize');
 
-const logger = require('../log');
-
 const UserModel = (sequelize) => {
     const User = sequelize.define('pikchat_users', {
         // Model attributes are defined here
