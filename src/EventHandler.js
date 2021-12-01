@@ -55,6 +55,10 @@ const EventHandler = (data) => {
         data.message = message;
         GetMessage(data);
     });
+
+    socket.on('CLOSE_CONNECTION', function(){
+        socket.disconnect(true);
+    });
 }
 
 

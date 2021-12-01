@@ -1,6 +1,7 @@
 const CONSTANTS = require('../constants');
 const events = require('../events');
 const utils = require('../utils/index');
+const { Op } = require("sequelize");
 
 /**
  * 
@@ -15,7 +16,18 @@ const GetMessage = async (data) => {
     const Message = models[CONSTANTS.MESSAGE];
 
     const messages = await Message.findAndCountAll({
-        where: {receiverId: userId, senderId: senderId},
+        where: {
+            [Op.or]: [{
+                [Op.and]: [
+                    {receiverId: userId, senderId: senderId}
+                ]},
+                {
+                    [Op.and]: [
+                        {receiverId: senderId, senderId: userId}
+                    ]
+                }
+            ]
+        },
         order: [
             ['id', 'DESC']
         ],

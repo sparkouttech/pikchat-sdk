@@ -1,6 +1,6 @@
 {
   "name": "pikchat-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sparkouttech chat library",
   "main": "index.js",
   "scripts": {
