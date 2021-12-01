@@ -51,7 +51,6 @@ Params :
 ```
 
 
-License
--------
+## License
 
-MIT
+[MIT](/LICENSE)
