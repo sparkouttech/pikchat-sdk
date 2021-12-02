@@ -5,7 +5,7 @@
   <a href="https://github.com/RichardLitt/standard-readme"><img src="https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square" /></a>
   <a href=""><img src="https://img.shields.io/badge/npm-%3E%3D3.0.0-orange.svg?style=flat-square" /></a>
   <a href=""><img src="https://img.shields.io/badge/Node.js-%3E%3D10.0.0-orange.svg?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/ipfs-http-client"><img src="https://img.shields.io/npm/dm/ipfs-http-client.svg" /></a>
+  <a href="https://www.npmjs.com/package/pikchat-sdk"><img src="https://img.shields.io/npm/dm/pikchat-sdk.svg" /></a>
   <br>
 </p>
 
