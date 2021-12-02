@@ -12,16 +12,16 @@
 
 > This library was developed by [https://www.pikchat.co](https://www.pikchat.co). Pik Chat, an instant messaging solution (SDK, API and App) for your business website and application to engage your users effectively and efficiently to scale the impact.
 
-Pikchat library
+Pikchat SDK
 ==================================
 
-Getting Started
----------------
+
+## Install
+
+This project uses [node](http://nodejs.org) and [npm](https://npmjs.com). Go check them out if you don't have them locally installed.
 
 ```sh
-# install from npm 
-npm i pikchat
-
+npm install pikchat-sdk
 ```
 
 ```javascript
