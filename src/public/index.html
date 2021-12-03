@@ -114,7 +114,7 @@
                 <div class="form-group mt-5">
                   <textarea type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter message"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3 float-right">send</button>
+                <button type="submit" id="sendMessage" class="btn btn-primary mt-3 float-right">send</button>
 
               </div>
             </div>
@@ -142,7 +142,7 @@
                   <input type="text" class="form-control" value="Hello" id="message" placeholder="">
                 </div>
 
-                <button type="button" id="sendMessage" class="btn btn-primary">Send</button>
+                <button type="button" class="btn btn-primary">Send</button>
 
               </div>
             </div>
@@ -257,6 +257,17 @@
           $("#disconnect").hide();
           $("#connect").show();
         });
+
+        socket.on("VALIDATION_ERROR", (data) => {
+          console.log('message received on VALIDATION_ERROR');
+          console.dir(data);
+        });
+
+        socket.on("EXCEPTION_ERROR", (data) => {
+          console.log('message received on EXCEPTION_ERROR');
+          console.dir(data);
+        });
+        
       });
 
       $("#disconnect").click(function() {
@@ -291,7 +302,7 @@
         const messageParams = {
           senderId : userId,
           receiverId : receiverId,
-          messageType : 1,
+          messageType : "1",
           message : message
         }
         socket.emit("SINGLE_CHAT_MESSAGE", messageParams);

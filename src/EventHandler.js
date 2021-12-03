@@ -7,6 +7,7 @@ const GetOfflineMessage = require('./events/GetOfflineMessage');
 const MessageDelivered = require('./events/MessageDelivered');
 const NewConnection = require('./events/NewConnection');
 const SingleChatMessage = require('./events/SingleChatMessage');
+const SingleChatMessageValidationSchema = require('./validations/single-chat-send-message');
 
 /**
  * 
@@ -30,10 +31,17 @@ const EventHandler = (data) => {
     /**
      * 
      */
-    socket.on(events.SINGLE_CHAT_MESSAGE, (message) => {
-        data.message = message;
-        SingleChatMessage(data);
+    socket.on(events.SINGLE_CHAT_MESSAGE, async (message) => {
+        const { error } = await SingleChatMessageValidationSchema.validate(message);
+
+        if (error == undefined) {
+            data.message = message;
+            SingleChatMessage(data);
+        } else {
+            throwValidationError(socket, events.SINGLE_CHAT_MESSAGE, error);
+        }
     });
+
     /**
      * 
      */
@@ -61,5 +69,18 @@ const EventHandler = (data) => {
     });
 }
 
+/**
+ * 
+ * @param {*} socket 
+ * @param {*} eventName 
+ * @param {*} error 
+ */
+const throwValidationError = (socket, eventName, error) => {
+    socket.emit('VALIDATION_ERROR',{
+        event : eventName,
+        error : error,
+        message : String(error.details[0].message)
+    });
+};
 
 module.exports = EventHandler;
