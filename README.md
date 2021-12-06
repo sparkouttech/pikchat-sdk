@@ -46,6 +46,11 @@ server.listen(3000, () => {
 });
 ```
 
+| S.No | Event name               | Action     |
+| -----| ------------------------ | ----------- |
+| 1    | SINGLE_CHAT_MESSAGE      | [view](#single-chat-message)  |
+
+
 <table>
   <tr>
     <th>S.No</th>
@@ -110,8 +115,6 @@ Params :
 }
 ```
 
-```html
-
   <table>
       <tr>
         <th>Key</th>
@@ -144,7 +147,6 @@ Params :
         <td>1 - text message 2 - image </td>
       </tr>
   </table>
-```
 
 ## License
 
