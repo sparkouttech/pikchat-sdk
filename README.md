@@ -46,59 +46,12 @@ server.listen(3000, () => {
 });
 ```
 
-| S.No | Event name               | Action     |
-| -----| ------------------------ | ----------- |
-| 1    | SINGLE_CHAT_MESSAGE      | [view](#single-chat-message)  |
+## Socket events 
 
-
-<table>
-  <tr>
-    <th>S.No</th>
-    <th>Event name</th>
-    <th>Action</th>
-  </tr>
-  <tr>
-    <td>1.</td>
-    <td>SINGLE_CHAT_MESSAGE</td>
-    <td>[view](#single-chat-message)</td>
-  </tr>
-  <tr>
-    <td>2.</td>
-    <td>SINGLE_CHAT_MESSAGE</td>
-    <td>[view](#single-chat-message)</td>
-  </tr>
-  <tr>
-    <td>3.</td>
-    <td>SINGLE_CHAT_MESSAGE</td>
-    <td>[view](#single-chat-message)</td>
-  </tr>
-  <tr>
-    <td>4.</td>
-    <td>SINGLE_CHAT_MESSAGE</td>
-    <td>[view](#single-chat-message)</td>
-  </tr>
-  <tr>
-    <td>5.</td>
-    <td>SINGLE_CHAT_MESSAGE</td>
-    <td>[view](#single-chat-message)</td>
-  </tr>
-  <tr>
-    <td>5.</td>
-    <td>SINGLE_CHAT_MESSAGE</td>
-    <td>[view](#single-chat-message)</td>
-  </tr>
-  <tr>
-    <td>5.</td>
-    <td>SINGLE_CHAT_MESSAGE</td>
-    <td>[view](#single-chat-message)</td>
-  </tr>
-  <tr>
-    <td>5.</td>
-    <td>SINGLE_CHAT_MESSAGE</td>
-    <td>[view](#single-chat-message)</td>
-  </tr>
-</table>
-
+| S.No | Event name                                           | Description                             | Action     |
+| -----| ---------------------------------------------------- | --------------------------------------- |----------- |
+| 1.   | SINGLE_CHAT_MESSAGE                                  |                                         | [view](#single-chat-message)  |
+| 2.   | SINGLE_CHAT_MESSAGE_DELIVERED                        |                                         | [view](#single-chat-message)  |
 
 # single chat message
 
