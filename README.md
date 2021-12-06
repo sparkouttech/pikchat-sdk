@@ -15,8 +15,6 @@
 
 Pikchat SDK
 ==================================
-See! Easy: [Go to socket events](#socket-events)
-
 
 ## Install
 
@@ -46,11 +44,58 @@ pikchat.startPikchatEngine(server);
 server.listen(3000, () => {
     console.log('listening on *:3000');
 });
-
-
 ```
 
-1. Send chat message :
+<table>
+  <tr>
+    <th>S.No</th>
+    <th>Event name</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>1.</td>
+    <td>SINGLE_CHAT_MESSAGE</td>
+    <td>[view](#single-chat-message)</td>
+  </tr>
+  <tr>
+    <td>2.</td>
+    <td>SINGLE_CHAT_MESSAGE</td>
+    <td>[view](#single-chat-message)</td>
+  </tr>
+  <tr>
+    <td>3.</td>
+    <td>SINGLE_CHAT_MESSAGE</td>
+    <td>[view](#single-chat-message)</td>
+  </tr>
+  <tr>
+    <td>4.</td>
+    <td>SINGLE_CHAT_MESSAGE</td>
+    <td>[view](#single-chat-message)</td>
+  </tr>
+  <tr>
+    <td>5.</td>
+    <td>SINGLE_CHAT_MESSAGE</td>
+    <td>[view](#single-chat-message)</td>
+  </tr>
+  <tr>
+    <td>5.</td>
+    <td>SINGLE_CHAT_MESSAGE</td>
+    <td>[view](#single-chat-message)</td>
+  </tr>
+  <tr>
+    <td>5.</td>
+    <td>SINGLE_CHAT_MESSAGE</td>
+    <td>[view](#single-chat-message)</td>
+  </tr>
+  <tr>
+    <td>5.</td>
+    <td>SINGLE_CHAT_MESSAGE</td>
+    <td>[view](#single-chat-message)</td>
+  </tr>
+</table>
+
+
+# single chat message :
 
 Event name : SINGLE_CHAT_MESSAGE
 
@@ -58,16 +103,48 @@ Params :
 
 ```json
 {
-    "senderId" : "1234", // logged in user's id
-    "receiverId" : "1235", // receiver user's id,
-    "message" : "hi siva", // message
-    "messageType" : 1 // 1 - text message 2 - image 
+    "senderId" : "1234",
+    "receiverId" : "1235",
+    "message" : "hi siva",
+    "messageType" : 1
 }
-
 ```
 
-# Socket events
-Add socket events details here
+```html
+
+  <table>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+        <th>Sample value</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>senderId</td>
+        <td>String</td>
+        <td>1234</td>
+        <td>logged in user's id</td>
+      </tr>
+      <tr>
+        <td>receiverId</td>
+        <td>String</td>
+        <td>1235</td>
+        <td>receiver user's id</td>
+      </tr>
+      <tr>
+        <td>message</td>
+        <td>String</td>
+        <td>Hii siva</td>
+        <td>message</td>
+      </tr>
+      <tr>
+        <td>messageType</td>
+        <td>Number</td>
+        <td>1</td>
+        <td>1 - text message 2 - image </td>
+      </tr>
+  </table>
+```
 
 ## License
 
