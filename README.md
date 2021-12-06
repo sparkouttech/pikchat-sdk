@@ -100,7 +100,7 @@ server.listen(3000, () => {
 </table>
 
 
-# single chat message :
+# single chat message
 
 Event name : SINGLE_CHAT_MESSAGE
 
