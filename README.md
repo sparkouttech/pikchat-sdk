@@ -15,6 +15,7 @@
 
 Pikchat SDK
 ==================================
+See! Easy: [Go to socket events](#socket-events)
 
 
 ## Install
@@ -65,6 +66,8 @@ Params :
 
 ```
 
+# Socket events
+Add socket events details here
 
 ## License
 
