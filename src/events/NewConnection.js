@@ -44,7 +44,8 @@ const NewConnection = async (data) => {
     } else {
         await userSession.update({ socketId: socket.id,isOnline: "true", lastOnlineAt: null }, {
             where: {
-                sessionId: sessionId
+                sessionId: sessionId,
+                userId: userId
             }
         });
     }

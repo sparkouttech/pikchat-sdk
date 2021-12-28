@@ -1,4 +1,5 @@
 const CONSTANTS = require('../constants');
+const { getSocketObj } = require('../EventHandler');
 const events = require('../events');
 const utils = require('../utils/index');
 
@@ -6,8 +7,6 @@ const SingleChatMessage = async (data) => {
 
     const { io, socket, models, message } = data;
     const { userId, accessToken, apiKey, sessionId } = socket.handshake.query;
-
-    socket.emit(events.SINGLE_CHAT_MESSAGE, message);
 
     /** Models */
     const User = models[CONSTANTS.USER];
@@ -20,13 +19,27 @@ const SingleChatMessage = async (data) => {
         }
     });
 
+    console.log(checkUser);
     if (checkUser == null) {
         /** receiver not connected to table */
         /**
          * Receiver is offline need to store the message on database
          */
-        storeOfflineMessage(data);
+         const Message = models[CONSTANTS.MESSAGE];
+         const messageParams = {
+             senderId : userId,
+             receiverId : message.receiverId,
+             messageType : message.messageType,
+             message : message.message,
+             messageStatus : 0,
+             status : 0,
+             sentAt : utils.getCurrentUtcDateTime()
+         }
+         await Message.create(messageParams);
+         message.messageStatus = 0;
+         socket.emit(events.SINGLE_CHAT_MESSAGE, message);
     } else {
+        console.log(checkUser.isOnline);
         if (checkUser.isOnline == 'true') {
             // user has active session
             const sessions = await userSession.findAll({
@@ -53,11 +66,22 @@ const SingleChatMessage = async (data) => {
                 sentAt : utils.getCurrentUtcDateTime()
             }
             await Message.create(messageParams);
+            message.messageStatus = 1;
+            socket.emit(events.SINGLE_CHAT_MESSAGE, message);
         } else {
-            /**
-             * Receiver is offline need to store the message on database
-             */
-            storeOfflineMessage(data);
+            const Message = models[CONSTANTS.MESSAGE];
+            const messageParams = {
+                senderId : userId,
+                receiverId : message.receiverId,
+                messageType : message.messageType,
+                message : message.message,
+                messageStatus : 0,
+                status : 0,
+                sentAt : utils.getCurrentUtcDateTime()
+            }
+            await Message.create(messageParams);
+            message.messageStatus = 0;
+            socket.emit(events.SINGLE_CHAT_MESSAGE, message);
         }
     }
 
